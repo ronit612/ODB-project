@@ -1,0 +1,102 @@
+Objective:
+
+> To Move forward for Aiding Blind People through Object Detection, 
+  Initially, We Need to Understand the Modular Approaches for Object Detection which would be
+  Feasible in Real-Life Scenario.
+
+Flow:
+
+> YOLO Models are Considered to be the Best for Object Detection.
+> As a Result, we'll Make a Comparative Analysis on Best and Famous YOLO Models, i.e.,
+  YOLOv5 and YOLOv8, for Research Work on Custom Dataset (Traffic Signals and Signs).
+
+Parameters of Comparison:
+
+> Speed and Precision stands to the Prominent Aspects when Identifying any Object. Thus, 
+  A Detailed Analysis will be Done on these Models on our Custom Dataset to Explicate, which
+  Model Performs the Best.
+
+Bonus:
+
+> The Comparison will not be Restricted to YOLO Models only but SSD Models as Well.
+
+Future Scope:
+
+> After Understanding OD Methodological Outlook, we'll move forward with Distance Estimation
+  and Voice output for the Same.
+
+That's It.
+
+
+Implementation:
+
+1] Dataset:
+
+> Dataset is Opensourced from Roboflow with 2093 Images with 17 Classes of Road Signs and Signals.(classes like red signal , turn right ,turn left)
+> The Split of Dataset is: Train (66% - 1400 Images), Validate (23% - 488 Images),
+and Test (11% - 229 Images).
+> The Dataset is Well-Balanced.
+> Dataset Link: https://universe.roboflow.com/roboflow-100/road-signs-6ih4y/dataset/2
+> Images Ratio: 640x640 (Suitable for YOLO Models).
+
+2] Comparison b/w YOLOv5 and YOLOv8:
+
+> We've mAP Values for Comparison and the Accuracy and Loss Graphs for Both the Models.
+
+> YOLOv5: YOLOv5 is the Deep Learning-Based Architecture, which we selected for this Research. 
+It achieves state-of-the-art results in the Object Detection Field. In comparison to other Deep
+Learning Architectures, YOLOv5 is Simple and Reliable. It needs much less Computational Power 
+than other Architectures, while keeping comparable Results and Performing much faster than 
+other Networks. YOLOv5 strongly utilizes the architecture of YOLOv4. The Encoder used in YOLOv5
+is CSPDarknet. Along with Path Aggregation Network (PANet) they make up the whole Network 
+Architecture. In comparison to the YOLOv4, Activation Functions were modiﬁed 
+(LeakyReLU and Hardswish Activations were replaced with SiLU [19] Activation Function).
+The selection of YOLOv5 Architecture for this Research was Motivated by Several Reasons:
+a] The Network is currently State-of-the-Art in the Fast Objects Detection Field.
+b] The Architecture is Light-Weight; this allows us to Train the Model using Small 
+Computational Resources and keep it Cost-Effective. 
+c] Small size of the Model has the Potential to be used in Mobile Devices.
+
+> YOLOv8: YOLOv8 is built on the YOLOv5 Framework and Includes Several Architectural and 
+Developer Experience Improvements. 
+YOLOv8 is an anchor-free model. This means it Predicts Directly the Center of an Object 
+instead of the Offset from a known Anchor Box. Anchor Free Detection Reduces the Number of Box 
+Predictions, which Speeds up Non-Maximum Suppression (NMS), A Complicated Post Processing step that 
+sifts through Candidate Detections after Inference.
+The stem's first 6x6 conv is replaced by a 3x3, the main building block was changed, and C2f 
+replaced C3 . The module is summarized in the picture below, where "f" is the number of features, 
+"e" is the expansion rate and CBS is a block composed of a Conv, a BatchNorm and a SiLU later.
+In C2f, all the outputs from the Bottleneck (fancy name for two 3x3 convs with residual connections) 
+are concatenated. While in C3 only the output of the last Bottleneck was Used.
+The Bottleneck is the same as in YOLOv5 but the first conv's kernel size was changed 
+from 1x1 to 3x3. From this information, we can see that YOLOv8 is starting to revert 
+to the ResNet block defined in 2015.
+In the neck, features are concatenated directly without forcing the same channel dimensions. 
+This reduces the parameters count and the overall size of the Tensors.
+YOLOv8 augments images during training online. At each epoch, the model sees a slightly 
+different variation of the images it has been provided.
+One of those augmentations is called mosaic augmentation. 
+This involves stitching four images together, forcing the model to learn objects in 
+new locations, in partial occlusion, and against different Surrounding Pixels.
+
+> YOLOv5 vs YOLOv8: When it comes to Object Detection, there are Many Models Available. 
+However, YOLOv8 and YOLOv5 are 02 of the Most Popular and State-of-the-Art Models created by 
+Ultralytics. YOLOv8 is the Latest Addition to the YOLO family, which builds Upon the Success 
+of Previous Versions and Introduces New Features and Improvements to Boost Performance and Flexibility. 
+YOLOv5, on the other hand, is known for its Speed, Simplicity, and Accuracy.
+
+3] Conclusion: YOLOv5 Performs Better for Our Dataset, with a Minor Difference,
+but as the YOLOv5 Model is Light-weight in Nature, It Suits the Best for our Future Scope.
+
+4] Future Scope: We Got the Model which we Would Use in Our Real-time System. As a Result,
+We will Now, Instantiate the Process of Formulation of a System with the Integration of 
+Hardware and Software to Aid Blind People on Roads through Road Signs and Signal Detection 
+Contemplating to them through Text to Speech.
+
+5] References:
+> https://www.who.int/news-room/fact-sheets/detail/blindness-and-visual-impairment
+> https://users.soe.ucsc.edu/
+
+That's It.
+
+
